@@ -18,42 +18,56 @@ Assim, os dois sócios contrataram uma consultoria de Ciência de Dados para res
 
 As principais **concorrentes** da Start Jeans são as americanas **H&M** e **Macy’s**.
 
-### Questão do Negócio: Qual o melhor preço de venda do produto?
+
 
 ## 2. Planejamento da solução:
 
-- Saídas: (Produto Final)
-	1. Questão do Negócio: Qual o melhor preço de venda do produto?
-		- Mediana dos preços dos concorrentes.
-     
-	2. Formato da entrega
-		- Tabela ou gráfico - elaborar protótipo
-     
-	3. local de entrega
-		- App Streamlit
-  
-- Processo: (Ações)
-	1. Resposta: Realizar o cálculo da mediana
-	2. Formato: 
-		- Gráfico de barras com a mediana dos preços por tipo e cor nos últimos 30 dias
-		- Tabela com as seguintes features: 
-			id | product_name | product_type | product_color | product_price
-		- Definir schema: Colunas e seus tipos
-		- Definir a infraestrutura de armazenamento (SQLITE3)
-		- Design do ETL (Scripts de Extração, Transformação e Carga dos dados)
-		- Planejamento do agendamento dos scripts (dependências entre os scrips)
-		- Fazer as visualizações
-		- Entrega do produto final
-	3. Local de entrega:
-		- App com Streamlit
+#### Questões do Negócio: 
 
-- Entradas: (Fontes de dados)
-	1. Fontes de dados
-		- Site da H&M: https://www2.hm.com/en_us/men/products/jeans.html
-		- Site da Macy's: https://www.macys.com/shop/mens-clothing/mens-jeans
-	2. Ferramentas
-		- Python 3.8.0
-		- Bibliotecas de Webscrapping (BS4, Selenium)
-		- JupyterLab (Análise, prototipagem e códigos)
-		- Cron job, Airflow
-		- Streamlit
+1. **Qual o melhor preço de vendas para as calças?**
+2. **Quantos tipos de calças e suas cores para o produto inicial?**
+3. **Quais as matérias-primas necessárias para confeccionar as calças?**
+
+
+
+#### Etapas:
+
+##### Saídas: (Produto Final)
+
+1. Respostas para as perguntas
+  - Mediana dos valores dos produtos dos sites dos concorrentes.
+
+2. Formato da entrega
+	- Tabela ou gráfico
+   
+3. local de entrega
+	- App Streamlit
+
+##### Processos: (Ações)
+
+1. Resposta: 
+   - Realizar o cálculo da mediana
+2. Formato: 
+  - Elaborar o gráfico de barras
+  - Montar a tabela com as seguintes features: 
+  	id | product_id | product_name | product_model | product_color | product_composition | product_price
+  - Definir schema: Colunas e seus tipos
+  - Definir a infraestrutura de armazenamento (SQLITE3)
+  - Construir o design do ETL (Scripts de Extração, Transformação e Carga dos dados)
+  - Planejar o agendamento dos scripts (dependências)
+  - Fazer as visualizações
+  - Entregar do produto final
+3. Local de entrega:
+  - App com Streamlit
+
+##### Entradas: (Fontes de dados)
+
+1. Fontes de dados
+	- Site da H&M: https://www2.hm.com/en_us/men/products/jeans.html
+	- Site da Macy's: https://www.macys.com/shop/mens-clothing/mens-jeans
+2. Ferramentas
+	- Python 3.8.0
+	- Bibliotecas de Webscrapping (BS4, Selenium)
+	- JupyterLab (Análise, prototipagem e códigos)
+	- Cron job, Airflow
+	- Streamlit
