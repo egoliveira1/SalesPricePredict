@@ -82,6 +82,12 @@ The project started with an exploratory analysis of the H&M website, to get to k
 
 Knowing the structure and the data tags, I programmed a first version of the code that extracted the URL of each product from the showcase. Then, with the product codes in a column of the data frame, it was possible to enter each model and get the complete data of color, composition, style, model, price, and size.
 
+
+
+![Screenshot](https://github.com/egoliveira1/SalesPricePredict/blob/main/img/ETL_design.png)
+
+
+
 #### Second Stage - Cleaning and Transformation
 
 The next step was cleaning and transforming the data. Using Regex tools, and data manipulation with Pandas, it was possible to remove "dirt", separate information, and organize the data.
