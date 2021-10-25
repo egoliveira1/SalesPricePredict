@@ -1,6 +1,12 @@
 # SalesPriceProduct
 Project to help a new company define the **selling price for men's pants** in the American market.
 
+
+
+![Screenshot](https://github.com/egoliveira1/SalesPricePredict/blob/main/img/cover_img_edit.png)
+
+
+
 ## 1. Business problem:
 
 Eduardo and Marcelo are two Brazilians, friends, and partners in a venture. After several successful businesses, they are planning to enter the US fashion market with an e-commerce business model called **Star Jeans**.
@@ -99,6 +105,10 @@ This step resulted in a Dataset with all the products separated by ID, color, na
 In the third stage of the project, I organized the automatic execution of the scrip to perform daily data extractions and load the data into SQLITE3. The process will take 30 days, and then the product will be built and delivered to the company. 
 
 The project solution was validated in a prototype built-in Google Sheets.
+
+
+
+![Screenshot](https://github.com/egoliveira1/SalesPricePredict/blob/main/img/dashboard_prototype.png)
 
 
 
