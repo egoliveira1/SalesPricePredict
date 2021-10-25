@@ -1,73 +1,122 @@
-# SalesPricePredict - Ongoing
-Predicting the **selling price** of pants for a new venture in the fashion business.
+# SalesPriceProduct
+Project to help a new company define the **selling price for men's pants** in the American market.
 
-## 1. Problema de negócio:
+## 1. Business problem:
 
-Eduardo e Marcelo são dois brasileiros, amigos e sócios de um empreendimento. Após vários negócios bem sucedidos, eles estão planejando entrar no mercado de moda dos USA como um modelo de negócio tipo E-commerce, chamado **Star Jeans**.
+Eduardo and Marcelo are two Brazilians, friends, and partners in a venture. After several successful businesses, they are planning to enter the US fashion market with an e-commerce business model called **Star Jeans**.
 
-A ideia inicial é entrar no mercado com **apenas um produto e para um público específico**, no caso o produto será **calças jeans para o público masculino**. O objetivo é manter o custo de operação baixo e escalar a medida que forem conseguindo clientes.
+The initial idea is to enter the market with **only one product and for a specific audience**, in this case, the product will be **jeans for men**.  The goal is to keep the cost of operation low and scale up as they get customers.
 
-Porém, mesmo com o produto de entrada e a audiência definidos, os dois sócios não tem experiência nesse mercado de moda e portanto não sabem **definir** coisas básicas como **preço**, o **modelo** da calça e o **material** para fabricação de cada peça.
+However, even with the entrance product and the audience defined, the two partners have no experience in this fashion market and therefore do not know how to **define** basic things like **price**, the **model** of the pants, and the **material** to manufacture each piece.
 
-Assim, os dois sócios contrataram uma consultoria de Ciência de Dados para responder as seguintes perguntas:
+So, the two partners hired a Data Science consultancy to answer the following questions:
 
-1. **Qual o melhor preço de vendas para as calças?**
+1. **What is the best sales price for the pants?**
+2. **How many types of pants and their colors for the initial product?**
+3. **What raw materials are needed to make the pants?**
 
-2. **Quantos tipos de calças e suas cores para o produto inicial?**
-3. **Quais as matérias-primas necessárias para confeccionar as calças?**
-
-As principais **concorrentes** da Start Jeans são as americanas **H&M** e **Macy’s**.
-
-
-
-## 2. Planejamento da solução:
-
-#### Questões do Negócio: 
-
-1. **Qual o melhor preço de vendas para as calças?**
-2. **Quantos tipos de calças e suas cores para o produto inicial?**
-3. **Quais as matérias-primas necessárias para confeccionar as calças?**
+Start Jeans' main competitors are the American companies **H&M** and **Macy's**.
 
 
 
-#### Etapas:
+## 2. Planning the solution:
 
-##### Saídas: (Produto Final)
+#### Business Issues: 
 
-1. Respostas para as perguntas
-  - Mediana dos valores dos produtos dos sites dos concorrentes.
+1. **What is the best sales price for the pants?**
+2. **How many types of pants and their colors for the initial product?**
+3. **What raw materials are needed to make the pants?**
 
-2. Formato da entrega
-	- Tabela ou gráfico
-   
-3. local de entrega
-	- App Streamlit
 
-##### Processos: (Ações)
 
-1. Resposta: 
-   - Realizar o cálculo da mediana
-2. Formato: 
-  - Elaborar o gráfico de barras
-  - Montar a tabela com as seguintes features: 
-  	id | product_id | product_name | product_model | product_color | product_composition | product_price
-  - Definir schema: Colunas e seus tipos
-  - Definir a infraestrutura de armazenamento (SQLITE3)
-  - Construir o design do ETL (Scripts de Extração, Transformação e Carga dos dados)
-  - Planejar o agendamento dos scripts (dependências)
-  - Fazer as visualizações
-  - Entregar do produto final
-3. Local de entrega:
-  - App com Streamlit
+#### Steps:
 
-##### Entradas: (Fontes de dados)
+##### Outputs: (Final Product)
 
-1. Fontes de dados
-	- Site da H&M: https://www2.hm.com/en_us/men/products/jeans.html
-	- Site da Macy's: https://www.macys.com/shop/mens-clothing/mens-jeans
-2. Ferramentas
+1. Answers to the questions
+   - Median of product values from competitors' websites.
+2. Delivery format
+  - Table or graph
+
+3. Delivery location
+  - Streamlit App
+
+##### Processes: (Actions)
+
+1. Response: 
+   - Perform the median calculation
+2. Format: 
+    - Elaborate the bar chart 
+    - Build the table with the following features: 
+       id | product_id | product_name | product_model | product_color | product_composition | product_price
+    - Define schema: Columns and their types
+    - Define the storage infrastructure (SQLITE3)
+    - Build the ETL (Data Extraction, Transformation and Load) design
+    - Plan the script scheduling (dependencies)
+    - Make the visualizations
+    - Deliver the final product
+
+
+3. Delivery location:
+   - App with Streamlit
+
+##### Inputs:
+
+1. Data sources:
+	- H&M Website: https://www2.hm.com/en_us/men/products/jeans.html
+	- Macy's Website: https://www.macys.com/shop/mens-clothing/mens-jeans
+2. Tools
 	- Python 3.8.0
-	- Bibliotecas de Webscrapping (BS4, Selenium)
-	- JupyterLab (Análise, prototipagem e códigos)
+	- Webscrapping libraries (BS4, Selenium)
+	- JupyterLab (Analysis, prototyping and coding)
 	- Cron job, Airflow
 	- Streamlit
+
+
+
+## 3. Running the solution:
+
+#### First stage - Exploration, and extraction
+
+The project started with an exploratory analysis of the H&M website, to get to know the structure of the HTML and locate where the information the project needs is. The products are distributed in two ways on the website, there is a first layer, which I called "Showcase", where are the products listed by model, and when accessing each model there are subdivisions by color. It is important to inform that the composition of each pant depends on the model and color, so it is necessary to extract the data individually.
+
+Knowing the structure and the data tags, I programmed a first version of the code that extracted the URL of each product from the showcase. Then, with the product codes in a column of the data frame, it was possible to enter each model and get the complete data of color, composition, style, model, price, and size.
+
+#### Second Stage - Cleaning and Transformation
+
+The next step was cleaning and transforming the data. Using Regex tools, and data manipulation with Pandas, it was possible to remove "dirt", separate information, and organize the data.
+
+This step resulted in a Dataset with all the products separated by ID, color, name, price, and composition. The table has the final format for the calculations planned for the delivery of the final product.
+
+#### Third Stage - Automation and Loading
+
+In the third stage of the project, I organized the automatic execution of the scrip to perform daily data extractions and load the data into SQLITE3. The process will take 30 days, and then the product will be built and delivered to the company. 
+
+The project solution was validated in a prototype built-in Google Sheets.
+
+
+
+## 4. Next steps:
+
+The next steps of the project foresee the following actions:
+
+- Adapt the code to extract the information from Macy's website;
+- Use Airflow to automate the execution of the collection jobs on both sites (H&M and Macy's);
+- Build the App in Streamlit;
+- Perform the first delivery of the solution;
+- Evaluate the need for a second development cycle.
+
+
+
+## 5. Lessons Learned:
+
+Companies are in permanent improvement of their products. Therefore, new features may emerge that did not exist when in the first version of code. Care must be taken so that the solution can handle the emergence of new information.
+
+
+
+
+
+
+
+
+
